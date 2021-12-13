@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Travel Landing Pange</title>
+</head>
+<body>
+  <section class="showcase">
+    <header>
+      <h2 class="logo">Travel</h2>
+      <div class="toggle"></div>
+    </header>
+
+    <video src="explore.mp4" muted loop autoplay ></video>
+    
+    <div class="overlay"></div>
+
+    <div class="text">
+      <h2>Never Stop!</h2>
+      <h3>Exploring The World</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur 
+         adipisicing elit. Nostrum tempora porro,
+         a ipsa atque magni! Aperiam harum at quam 
+         quidem, deleniti sequi fugit perferendis 
+         vero enim modi beatae porro asperiores!</p>
+         <a href="#"></a>
+    </div>
+
+         <ul class="social">
+           <li><img height="50px" width="50px" src="facebook.png" atl=""></li>
+           <li><img height="45px" width="45px" src="twitter.png" atl=""></li>
+           <li><img height="40px" width="55px" src="instagram.png" atl=""></li>
+         </ul> 
+  </section>
+
+  <div class="menu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#">Destination</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>         
+  </div>
+
+  <script>
+     const menuToggle = document.querySelector('.toggle');
+     const showcase = document.querySelector('.showcase');
+
+      menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      showcase.classList.toggle('active');
+      })
+  </script>
+
+</body>
+</html>
+
+<!--Router###
+
+enable
+configure terminal 
+no ip domain-lookup
+hostname R1
+banner motd #Unauthorized access to this device is prohibited!#
+
+interface g0/0/0
+description Connect to Subnet B
+ip address 192.168.10.129 255.255.255.192
+no shutdown 
+exit
+
+interface g0/0/1
+description Connect to Subnet A
+ip address 192.168.10.1 255.255.255.128
+no shutdown 
+exit
+
+enable secret NoOneShouldKnow
+service password-encryption
+security passwords min-length 10
+
+ip domain-name netsec.com
+username netadmin secret Ci$co12345
+
+line console 0
+password C@nsPassw!
+login
+exit
+
+line vty 0 15
+transport input ssh
+login local
+exit
+
+crypto key generate rsa
+1024
+exit
+copy running-config startup-config
+=====================================================
+
+##SWITCH###
+
+enable
+configure terminal 
+no ip domain-lookup
+hostname S1
+banner motd #Unauthorized access to this device is prohibited!#
+
+interface vlan 1
+description Switch Subnet A
+ip address 192.168.10.2 255.255.255.128
+no shutdown 
+exit
+
+ip default-gateway 192.168.10.1
+
+enable secret NoOneShouldKnow
+service password-encryption
+
+ip domain-name netsec.com
+username netadmin secret Ci$co12345
+
+line console 0
+password C@nsPassw!
+login
+exit
+
+line vty 0 15
+transport input ssh
+login local
+exit
+
+crypto key generate rsa
+1024
+
+int range f0/1 - 4, f0/7 - 24, g0/1 - 2
+description Unused switch ports
+shutdown
+
+end
+copy running-config startup-config
+-->
